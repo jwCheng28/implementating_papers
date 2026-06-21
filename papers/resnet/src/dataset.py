@@ -4,9 +4,9 @@ from torchvision import datasets, transforms
 
 
 class CIFAR10DataModule(pl.LightningDataModule):
-    def __init__(self, data_path: str = "./data", batch_size: int = 128, num_workers: int = 4):
+    def __init__(self, data_dir: str = "./data", batch_size: int = 128, num_workers: int = 4):
         super().__init__()
-        self.data_path = data_path
+        self.data_dir = data_dir
         self.batch_size = batch_size
         self.num_workers = num_workers
 
