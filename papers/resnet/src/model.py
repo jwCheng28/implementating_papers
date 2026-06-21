@@ -74,7 +74,7 @@ class ResNet(pl.LightningModule):
         return nn.Sequential(*layers)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.maxpool(self.relu(self.bn1(self.conv1(x))))
+        x = self.relu(self.bn1(self.conv1(x)))
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
