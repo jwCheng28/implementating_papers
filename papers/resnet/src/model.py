@@ -110,6 +110,6 @@ class ResNet(pl.LightningModule):
         return {"optimizer": optimizer, "lr_scheduler": scheduler}
 
 
-def resnet50(num_classes: int = 1000) -> ResNet:
+def resnet50(num_classes: int = 10, lr: float = 0.1, weight_decay: float = 1e-4) -> ResNet:
     # ResNet-50 layer configuration: [3, 4, 6, 3] blocks per stage
-    return ResNet(Bottleneck, [3, 4, 6, 3], num_classes=num_classes)
+    return ResNet(Bottleneck, [3, 4, 6, 3], num_classes=num_classes, lr=lr, weight_decay=weight_decay)

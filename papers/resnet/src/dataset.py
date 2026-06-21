@@ -27,7 +27,7 @@ class CIFAR10DataModule(pl.LightningDataModule):
         datasets.CIFAR10(self.data_dir, train=True, download=True)
         datasets.CIFAR10(self.data_dir, train=False, download=True)
 
-    def setup(self):
+    def setup(self, stage=None):
         self.train_dataset = datasets.CIFAR10(
             self.data_dir, train=True, transform=self.transform_train)
         self.val_dataset = datasets.CIFAR10(
