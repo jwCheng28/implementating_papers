@@ -41,10 +41,9 @@ class ResNet(pl.LightningModule):
         self.in_channels = 64
 
         self.conv1 = nn.Conv2d(3, self.in_channels,
-                               kernel_size=7, stride=1, padding=1, bias=False)
+                               kernel_size=1, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(self.in_channels)
         self.relu = nn.ReLU(inplace=True)
-        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
 
         self.layer1 = self._make_layer(block, 64, layers[0], stride=1)
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
