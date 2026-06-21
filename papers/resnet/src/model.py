@@ -25,9 +25,9 @@ class Bottleneck(nn.Module):
         self.downsample = downsample
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        identity = self.downsample
-        if identity == None:
-            identity = x
+        identity = x
+        if self.downsample != None:
+            identity = self.downsample(x)
         out1 = self.relu(self.bn1(self.conv1(x)))
         out2 = self.relu(self.bn2(self.conv2(out1)))
         out3 = self.relu(self.bn3(self.conv3(out2)) + identity)
