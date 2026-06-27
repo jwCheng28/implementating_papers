@@ -1,4 +1,4 @@
-# ResNet-50 from Scratch (CIFAR-10)
+# ResNet-50 (CIFAR-10)
 
 This is an implementation of **ResNet-50** built using **PyTorch** and structured with **PyTorch Lightning**. 
 
