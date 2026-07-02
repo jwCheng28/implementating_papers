@@ -8,7 +8,7 @@ This repository serves as a hub for my deep learning studies. My goal is to read
 
 | Paper | Reference Link | Subdirectory Code | Dataset |
 | :--- | :--- | :--- | :--- |
-| **Deep Residual Learning for Image Recognition** | [arXiv:1512.03385](https://arxiv.org/abs/1512.03385) | [`/implementations/resnet`](./implementations/resnet) | CIFAR-10 |
+| **Deep Residual Learning for Image Recognition** | [arXiv:1512.03385](https://arxiv.org/abs/1512.03385) | [`/papers/resnet`](./papers/resnet) | CIFAR-10 |
 
 ---
 
