@@ -7,7 +7,7 @@ import os
 from .utils import load_img, convert_to_img
 
 
-class ImageFeature(nn.Moduel):
+class ImageFeature(nn.Module):
     def __init__(self):
         super().__init__()
         vgg = models.vgg19(weights=models.VGG19_Weights.DEFAULT).features
