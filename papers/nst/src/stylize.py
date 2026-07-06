@@ -74,7 +74,7 @@ def run_nst(content_path: str, style_path: str, steps: int = 300,
         for layer, weight in style_layer_weights.items():
             generated_gm = calculate_gram_matrix(generated_features[layer])
             style_loss += weight * \
-                torch.mean((style_gm["conv4_2"]-generated_gm["conv4_2"])**2)
+                torch.mean((style_gm[layer]-generated_gm)**2)
 
         total_loss = content_weight * content_loss + style_weight * style_loss
 
