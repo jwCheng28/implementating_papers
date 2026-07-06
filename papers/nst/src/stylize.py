@@ -41,7 +41,7 @@ class ImageFeature(nn.Module):
 def calculate_gram_matrix(x: torch.Tensor) -> torch.Tensor:
     _, channels, height, width = x.size()
     features = x.view(channels, height * width)
-    gm = torch.mm(x, x.t())
+    gm = torch.mm(features, features.t())
     return gm / channels * height * width
 
 
