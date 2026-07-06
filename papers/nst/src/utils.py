@@ -24,10 +24,10 @@ def convert_to_img(tensor: torch.Tensor) -> Image.Image:
     img = img.squeeze(0)
 
     # Re-arrange back to standard numpy image layout: (C, H, W) -> (H, W, C)
-    image = image.numpy().transpose(1, 2, 0)
+    img = img.numpy().transpose(1, 2, 0)
 
-    image = image * IMAGENET_STD + IMAGENET_MEAN
-    image = image.clip(0, 1)
+    img = img * IMAGENET_STD + IMAGENET_MEAN
+    img = img.clip(0, 1)
 
     # Convert a [0, 1] float matrix into a standard [0, 255] unsigned integer image format
-    return Image.fromarray((image * 255).astype('uint8'))
+    return Image.fromarray((img * 255).astype('uint8'))
