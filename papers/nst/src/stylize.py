@@ -21,21 +21,21 @@ class ImageFeature(nn.Module):
         for param in self.parameters():
             param.requires_grad = False
 
-        def forward(self, x: torch.Tensor) -> dict[str, torch.Tensor]:
-            features = {}
-            x = self.slice1(x)
-            features['conv1_1'] = x
-            x = self.slice2(x)
-            features['conv2_1'] = x
-            x = self.slice3(x)
-            features['conv3_1'] = x
-            x = self.slice4(x)
-            features['conv4_1'] = x
-            x = self.slice5(x)
-            features['conv4_2'] = x
-            x = self.slice6(x)
-            features['conv5_1'] = x
-            return features
+    def forward(self, x: torch.Tensor) -> dict[str, torch.Tensor]:
+        features = {}
+        x = self.slice1(x)
+        features['conv1_1'] = x
+        x = self.slice2(x)
+        features['conv2_1'] = x
+        x = self.slice3(x)
+        features['conv3_1'] = x
+        x = self.slice4(x)
+        features['conv4_1'] = x
+        x = self.slice5(x)
+        features['conv4_2'] = x
+        x = self.slice6(x)
+        features['conv5_1'] = x
+        return features
 
 
 def calculate_gram_matrix(x: torch.Tensor) -> torch.Tensor:
