@@ -4,7 +4,7 @@ import torch.optim as optim
 import torchvision.models as models
 import os
 
-from utils import load_img, convert_to_img
+from .utils import load_img, convert_to_img
 
 
 class ImageFeature(nn.Moduel):
