@@ -4,11 +4,11 @@ from torchvision import datasets, transforms
 
 
 class FashionMNISTDataModule(pl.LightningDataModule):
-    def __init__(self, data_dir: str = './data', batch_size: int = 128, num_worker: int = 4):
+    def __init__(self, data_dir: str = './data', batch_size: int = 128, num_workers: int = 4):
         super().__init__()
         self.data_dir = data_dir
         self.batch_size = batch_size
-        self.num_workers = self.num_workers
+        self.num_workers = num_workers
 
         self.transform = transforms.Compose([
             transforms.ToTensor(),
