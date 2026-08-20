@@ -88,7 +88,7 @@ class GANLightning(pl.LightningModule):
         # train discriminator
         self.toggle_optimizer(opt_d)
 
-        pred_reals = self.discriminator(real_imgs.detach())
+        pred_reals = self.discriminator(real_imgs)
         d_real_loss = self.criterion(pred_reals, real_labels)
 
         z = torch.randn(batch_size, self.hparams.latent_dim,
