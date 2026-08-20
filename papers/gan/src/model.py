@@ -88,13 +88,14 @@ class GANLightning(pl.LightningModule):
         # train discriminator
         self.toggle_optimizer(opt_d)
 
-        pred_reals = self.discriminator(real_imgs)
+        pred_reals = self.discriminator(real_imgs).view(batch_size, -1)
         d_real_loss = self.criterion(pred_reals, real_labels)
 
         z = torch.randn(batch_size, self.hparams.latent_dim,
                         1, 1, device=self.device)
         fake_imgs = self.generator(z)
-        pred_fakes = self.discriminator(fake_imgs.detach())
+        pred_fakes = self.discriminator(
+            fake_imgs.detach()).view(batch_size, -1)
         d_fake_loss = self.criterion(pred_fakes, fake_labels)
         d_loss = (d_real_loss + d_fake_loss) / 2
         opt_d.zero_grad()
@@ -104,7 +105,8 @@ class GANLightning(pl.LightningModule):
 
         # train generator
         self.toggle_optimizer(opt_g)
-        pred_fakes = self.discriminator(fake_imgs)
+        fake_imgs = self.generator(z)
+        pred_fakes = self.discriminator(fake_imgs).view(batch_size, -1)
         g_loss = self.criterion(pred_fakes, real_labels)
         opt_g.zero_grad()
         self.manual_backward(g_loss)
