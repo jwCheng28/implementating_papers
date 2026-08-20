@@ -10,6 +10,7 @@ This repository serves as a hub for my deep learning studies. My goal is to read
 | :--- | :--- | :--- | :--- |
 | **Deep Residual Learning for Image Recognition** | [arXiv:1512.03385](https://arxiv.org/abs/1512.03385) | [`/papers/resnet`](./papers/resnet) | CIFAR-10 |
 | **A Neural Algorithm of Artistic Style** | [arXiv:1508.06576](https://arxiv.org/abs/1508.06576) | [`/papers/nst`](./papers/nst) | N/A |
+| **Generative Adversarial Networks** | [arXiv:1406.2661](https://arxiv.org/abs/1406.2661) | [`/papers/gan`](./papers/gan) | Fashion-MNIST |
 ---
 
 ## Quickstart
